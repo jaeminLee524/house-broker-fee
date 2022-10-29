@@ -1,1 +1,19 @@
-
+spring:
+  profiles:
+    active: local
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        default_batch_fetch_size: 1000
+  datasource:
+    hikari:
+      url: ${JDBC_URL:jdbc:h2:mem:houseutils}
+      driverClassName: org.h2.Driver
+      username: ${JDBC_USERNAME:sa}
+      password: ${JDBC_PASSWORD:}
+    h2:
+      console:
+        enabled: true
+        path: /h2-console

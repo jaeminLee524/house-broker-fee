@@ -4,4 +4,7 @@ GET {{host}}/api/calc/brokerage?actionType=PURCHASE&price=100000000
 ### 중개수수료 - 임대차
 GET {{host}}/api/calc/brokerage?actionType=RENT&price=100000000
 
+### 중개수수료 - 아파트
+GET {{host}}/api/calc/apartment/1?aactionType=RENT
+
 
