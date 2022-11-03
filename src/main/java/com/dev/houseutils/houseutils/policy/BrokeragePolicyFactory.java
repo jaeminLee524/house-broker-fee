@@ -9,6 +9,9 @@ import com.dev.houseutils.houseutils.exception.HouseUtilsException;
  */
 public class BrokeragePolicyFactory {
 
+    private static final PurchaseBrokeragePolicy purchaseBrokeragePolicy = new PurchaseBrokeragePolicy();
+    private static final RentBrokeragePolicy rentBrokeragePolicy = new RentBrokeragePolicy();
+
     private BrokeragePolicyFactory() {
         throw new IllegalStateException("Utility class");
     }
@@ -16,9 +19,9 @@ public class BrokeragePolicyFactory {
     public static BrokeragePolicy of(ActionType type) {
         switch (type) {
             case PURCHASE:
-                return new PurchaseBrokeragePolicy();
+                return purchaseBrokeragePolicy;
             case RENT:
-                return new RentBrokeragePolicy();
+                return rentBrokeragePolicy;
             default:
                 throw new HouseUtilsException(ErrorCode.INVALID_REQUEST, String.format("해당 %s에 대한 정책이 존재하지 않습니다.", type));
         }
